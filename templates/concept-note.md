@@ -1,25 +1,23 @@
 ---
-title: "{{concept}}"
+title: "{{概念名}}"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
-summary: ""
-tags: [ai-evals, concept]
 type: concept
+summary: ""
+tags: []
 status: draft
 related: []
-source_count: 0
-confidence: emerging
 ---
 
-# {{concept}}
+# {{概念名}}
 
 ## 概要
 
 ## なぜ重要か
 
-## 実務での使い方
+## 関連するソース
 
-## 関連
+## 関連する経験・手順
 
-## 出典
+## 関連ノート
 

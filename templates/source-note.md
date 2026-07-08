@@ -1,22 +1,22 @@
 ---
-title: "{{title}}"
+title: "{{タイトル}}"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
-summary: ""
-tags: [ai-evals, source]
 type: source
+summary: ""
+tags: []
 status: draft
 source_url: ""
 authors: []
 ---
 
-# {{title}}
+# {{タイトル}}
 
 ## 要約
 
 ## 主要概念
 
-## 他のソースとのつながり
+## 関連するノート
 
 ## 出典メモ
 

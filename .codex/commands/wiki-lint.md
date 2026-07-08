@@ -1,21 +1,22 @@
 ---
-description: Health-check the wiki for broken links, metadata issues, orphans, and gaps
+description: vaultのリンク、未整理メモ、重複、未作成ページを点検する
 ---
 
-# Wiki Lint
+# 外部脳ヘルスチェック
 
-Read `AGENTS.md` first.
+最初に `AGENTS.md` を読む。
 
-Run a wiki health check.
+vault全体を点検し、知識グラフとして使いやすい状態に整える。
 
-Check:
+## チェック項目
 
-1. Broken `[[wikilinks]]`.
-2. Orphan pages with no inbound links.
-3. Missing or malformed YAML frontmatter.
-4. Important concepts referenced repeatedly but lacking concept pages.
-5. Source pages older than six months where recency matters.
-6. Contradictions or unresolved tensions across pages.
+1. 壊れた `[[wikilink]]`
+2. 頻出しているのに未作成の重要ページ
+3. リンクが孤立しているノート
+4. `inbox/` に残った未整理メモ
+5. `daily/` から `ops/` に昇格できる繰り返し作業
+6. `daily/` から `wiki/` に昇格できる繰り返しテーマ
+7. frontmatterの不足
+8. 古くなっていそうな情報
 
-Fix low-risk structural issues automatically. Save the report to `wiki/outputs/lint-report-YYYY-MM-DD.md`, update the master index when useful, and append to `wiki/log.md`.
-
+低リスクな修正は実施する。判断が必要なものは `qa/` にレポートとして残す。

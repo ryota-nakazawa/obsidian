@@ -1,94 +1,110 @@
-# External Brain Agent Guide
+# 外部脳 運用ガイド
 
-## Overview
+このvaultは、単なるメモ置き場ではなく、外部ソース・整理済み知識・日々の記録・業務手順・質問回答を `[[wikilink]]` でつなぐための個人知識グラフです。
 
-This vault is a personal external brain for AI agent evaluation and related AI engineering research. Raw source material lives in `raw/`. The compiled wiki lives in `wiki/`. The agent maintains wiki content, links, indexes, and research outputs while preserving raw sources as the source of truth.
+## 最小構成
 
-## Directory Structure
+- `raw/` - 外部ソース置き場。記事、PDFのテキスト化、Webクリップ、一次情報などを入れる。
+- `wiki/` - 整理済み知識。ソースを要約し、概念同士を関連付けたノートを置く。
+- `daily/` - 日々の記録。作業ログ、日記、感情メモ、気づきを日付単位で置く。
+- `ops/` - 再利用する手順。仕事や生活のやり方、チェックリスト、SOPを置く。
+- `qa/` - 質問と回答。ユーザーがCodexへ投げた質問と、再利用価値のある回答を保存する。
+- `inbox/` - 未整理メモ。置き場所に迷うものを一時的に入れる。
+- `templates/` - ノートの型。
+- `.codex/commands/` - Codexに頼む定型作業。
 
-- `raw/` - Source material. Treat as read-only unless the user explicitly asks to add or clean raw sources.
-- `wiki/index.md` or `wiki/Master Index - AIエージェント評価.md` - Master index / map of content.
-- `wiki/log.md` - Append-only operation log.
-- `wiki/sources/` - One summary per raw source.
-- `wiki/concepts/` - One article per concept.
-- `wiki/entities/` - People, organizations, products, tools.
-- `wiki/syntheses/` - Cross-source analyses and position papers.
-- `wiki/outputs/` - Filed answers to user queries and lint reports.
-- `templates/` - Markdown templates for recurring note types.
-- `.codex/commands/` - Reusable command prompts for this vault.
+## 知識の流れ
 
-Existing top-level files in `wiki/` are valid legacy wiki pages. Do not move them unless the user asks for reorganization.
+### 1. ソースを集める
 
-## File Conventions
+外部記事や資料は `raw/` に入れる。`raw/` は原本に近い置き場なので、原則として加工しない。
 
-- Prefer Japanese for wiki output unless the user asks otherwise.
-- Use kebab-case ASCII filenames for new system files where practical.
-- Japanese filenames are acceptable for user-facing wiki notes when they improve readability.
-- Every new wiki page should start with YAML frontmatter:
+### 2. ソースを知識化する
+
+`raw/` の内容を読み、`wiki/` に以下を作る。
+
+- ソース要約
+- 重要概念
+- 関連する既存ノートへの `[[wikilink]]`
+- 複数ソースを横断した整理
+
+### 3. 日々の記録と結びつける
+
+`daily/` には自然な文章で書いてよい。あとからCodexが重要語を `[[wikilink]]` に変換する。
+
+例:
+
+```md
+今日はAI評価記事の構成で迷った。
+LLM-as-a-Judgeの説明が長くなりすぎた。
+note公開手順も見直したい。
+```
+
+整理後:
+
+```md
+今日は [[AI評価記事]] の構成で迷った。
+[[LLM-as-a-Judge]] の説明が長くなりすぎた。
+[[note公開手順]] も見直したい。
+```
+
+### 4. 手順化する
+
+繰り返す作業や迷いが多い作業は `ops/` に手順として保存する。`daily/` や `qa/` から見つかった改善点は `ops/` に反映する。
+
+### 5. 質問回答を残す
+
+Codexへの質問で再利用価値があるものは `qa/` に保存する。回答は関連する `wiki/`, `daily/`, `ops/` へリンクする。
+
+## ノート作成ルール
+
+- ドキュメントは基本的に日本語で書く。
+- 新しいノートには、必要な範囲でYAML frontmatterを付ける。
+- `[[wikilink]]` は貼りすぎない。後で探したい概念、プロジェクト、手順、感情パターンに絞る。
+- `raw/` は原本性を優先する。要約や解釈は `wiki/` に置く。
+- 日記や感情ログは `daily/` に置く。重要なパターンだけ `wiki/` や `ops/` に昇格する。
+
+## 推奨frontmatter
 
 ```yaml
 ---
-title: "Page Title"
+title: "タイトル"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
-summary: "One or two sentences describing this page."
-tags: [ai-evals]
-type: concept | entity | source | synthesis | output | index | log
-status: draft | review | final
+type: source | concept | daily | ops | qa | index
+summary: "一文要約"
+tags: []
+status: draft | final
 ---
 ```
 
-- Use `[[wikilinks]]` for internal references.
-- Link only the first occurrence of a concept per section unless repeated links improve navigation.
-- Trace claims to source pages or source URLs where possible.
-- Do not leave important `[[wikilinks]]` unresolved if a short stub page would be useful.
+## Codexへの頼み方
 
-## Operations
+### rawをwiki化する
 
-### INGEST: Process New Raw Sources
+```text
+rawに追加したソースを読み、wikiに要約と概念ページを作って。関連する既存ノートにもリンクして。
+```
 
-Use when the user adds files to `raw/` or asks to process new material.
+### dailyを整理する
 
-1. List raw markdown files.
-2. Compare against `wiki/sources/` and existing source notes in `wiki/`.
-3. For each unprocessed source, create or update a source summary.
-4. Identify concepts and entities.
-5. Create concept/entity pages when a subject appears in 2+ sources, or a stub when it is important.
-6. Update the master index.
-7. Append a dated entry to `wiki/log.md`.
+```text
+今週のdailyを読んで、重要な概念・プロジェクト・手順にだけwikilinkを貼って。リンクを貼りすぎないで。
+```
 
-### QUERY: Answer From the Wiki
+### 週報を書く
 
-Use when the user asks a question about the vault topic.
+```text
+今週のdaily、qa、ops、wikiを読んで週報を書いて。成果、詰まり、学び、来週やること、opsに反映すべき改善点に分けて。
+```
 
-1. Read the master index first.
-2. Read relevant source, concept, and synthesis pages.
-3. Answer with `[[wikilink]]` citations.
-4. Save durable answers to `wiki/outputs/{question-slug}.md` when the answer adds reusable knowledge.
-5. Update the index and log if new durable output is created.
+### 質問回答を保存する
 
-### LINT: Health Check
+```text
+今の回答をqaに保存して、関連するwikiやopsにリンクして。
+```
 
-Use when the user asks for a health check, link check, cleanup, or periodic maintenance.
+## 現在の主テーマ
 
-1. Find broken `[[wikilinks]]`.
-2. Find orphan pages with no inbound links.
-3. Find missing or malformed frontmatter.
-4. Identify stale source-derived content.
-5. Flag contradictions across pages.
-6. Fix low-risk structural issues automatically.
-7. Save a report to `wiki/outputs/lint-report-YYYY-MM-DD.md`.
-8. Append to `wiki/log.md`.
-
-## Quality Standards
-
-- Summaries should synthesize, not copy.
-- Prefer source-grounded claims over generic explanation.
-- Flag uncertainty explicitly.
-- For high-stakes claims, use at least two independent sources or mark the claim as tentative.
-- Keep `raw/` immutable so the compiled wiki can be regenerated or audited.
-
-## Current Topic Scope
-
-Primary scope: AI evals, AI agent evaluation, grader design, evaluation datasets, evaluation harnesses, production feedback loops, and operationalizing AI quality measurement.
+現時点の主要テーマはAI Evals / AIエージェント評価。ただし、このvault自体は仕事、日記、業務手順、質問回答も扱う。
 

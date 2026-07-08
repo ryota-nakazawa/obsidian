@@ -4,7 +4,7 @@ date_created: 2026-07-07
 date_modified: 2026-07-07
 summary: "AI evalsの最新動向を、既存wikiとOpenAI/Anthropicの一次情報をもとに整理したリサーチメモ。"
 tags: [AIエージェント評価, evals, research]
-type: output
+type: qa
 status: final
 ---
 

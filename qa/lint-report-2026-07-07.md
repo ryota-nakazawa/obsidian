@@ -4,7 +4,7 @@ date_created: 2026-07-07
 date_modified: 2026-07-07
 summary: "外部脳vault初期整備後のリンク・構造ヘルスチェック。"
 tags: [AIエージェント評価, lint]
-type: output
+type: qa
 status: final
 ---
 
@@ -13,7 +13,8 @@ status: final
 ## 実施内容
 
 - `AGENTS.md` を追加し、INGEST / QUERY / LINT の運用ルールを定義した。
-- `wiki/sources/`, `wiki/concepts/`, `wiki/entities/`, `wiki/syntheses/`, `wiki/outputs/` を作成した。
+- 当時の初期構成として `wiki/sources/`, `wiki/concepts/`, `wiki/entities/`, `wiki/syntheses/`, `wiki/outputs/` を作成した。
+- 2026-07-09時点では構成を最小化し、`wiki/entities/`, `wiki/syntheses/`, `wiki/outputs/` は廃止した。
 - `.codex/commands/` に `wiki-ingest`, `wiki-query`, `wiki-lint` の定型プロンプトを追加した。
 - 中核概念ページとして [[評価データセット]], [[評価ハーネス]], [[Production Flywheel]], [[LLM-as-a-Judge]], [[Pass@K]] を追加した。
 
@@ -41,4 +42,3 @@ status: final
 1. 既存の `wiki/*.md` を `wiki/sources/` と `wiki/concepts/` へ段階的に再配置する。ただしObsidianリンク確認後に行う。
 2. `raw/` に新しい記事を追加したら `.codex/commands/wiki-ingest.md` の手順で取り込む。
 3. 未解決リンクのうち、複数ソースに登場する概念から優先してページ化する。
-

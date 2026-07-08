@@ -62,7 +62,7 @@ tags: [AIエージェント評価, index]
 - [[Vibeベース評価]]（「動いてる気がする」）
 - [[正答率偏重]]
 
-## リサーチ出力
+## 質問回答・リサーチ記録
 
 - [[evals-research-2026-07-07]] — 2026-07-07時点のAI Evals最新動向と実務フレーム
 
@@ -73,3 +73,5 @@ tags: [AIエージェント評価, index]
 - `.codex/commands/wiki-ingest.md` — 新しいrawを処理する定型コマンド
 - `.codex/commands/wiki-query.md` — 質問に答えてwikiへ保存する定型コマンド
 - `.codex/commands/wiki-lint.md` — リンク切れ・孤立ページ・メタデータを点検する定型コマンド
+- `.codex/commands/daily-link.md` — dailyに重要なリンクだけ貼る定型コマンド
+- `.codex/commands/weekly-report.md` — 週報作成用の定型コマンド

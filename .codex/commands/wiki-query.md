@@ -1,21 +1,19 @@
 ---
-description: Answer a question using the compiled wiki and file the answer back
+description: vault内の知識を統合して質問に答え、必要ならqaへ保存する
 ---
 
-# Wiki Query
+# 質問回答
 
-Read `AGENTS.md` first.
+最初に `AGENTS.md` を読む。
 
-Answer the user's question using the wiki as the primary source.
+ユーザーの質問に対して、単一ノートだけでなく関連する `wiki/`, `daily/`, `ops/`, `qa/` を横断して答える。
 
-Steps:
+## 手順
 
-1. Read the master index.
-2. Select the relevant wiki pages.
-3. Read those pages before answering.
-4. If the wiki is insufficient and the topic may have changed, browse current authoritative sources.
-5. Produce a concise answer with `[[wikilink]]` citations where possible.
-6. Save reusable answers to `wiki/outputs/{question-slug}.md`.
-7. Update the master index if a durable output was created.
-8. Append an entry to `wiki/log.md`.
+1. 質問に関係しそうなindexや関連ノートを探す。
+2. 中心概念だけでなく、そこからリンクされている近い概念も確認する。
+3. 必要なら `daily/` や `ops/` の実体験・手順も参照する。
+4. 回答では、根拠になったノートを `[[wikilink]]` で示す。
+5. 再利用価値がある回答は `qa/YYYY-MM-DD-質問スラッグ.md` に保存する。
+6. 保存した場合は、関連する `wiki/` や `ops/` へリンクする。
 

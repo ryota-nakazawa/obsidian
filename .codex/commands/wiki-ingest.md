@@ -1,24 +1,24 @@
 ---
-description: Process new raw sources into the compiled wiki
+description: rawの外部ソースをwikiの整理済み知識へ変換する
 ---
 
-# Wiki Ingest
+# ソース取り込み
 
-Read `AGENTS.md` first.
+最初に `AGENTS.md` を読む。
 
-Process new files in `raw/` into the compiled wiki.
+`raw/` にある新しい外部ソースを読み、`wiki/` に整理済み知識として保存する。
 
-Steps:
+## 手順
 
-1. List all markdown files in `raw/`.
-2. List existing source summaries in `wiki/sources/` and source-style pages in `wiki/`.
-3. Identify raw files that do not appear to have been processed.
-4. For each new source:
-   - Create a source summary in `wiki/sources/`.
-   - Identify key concepts and entities.
-   - Create or update relevant pages in `wiki/concepts/` and `wiki/entities/`.
-   - Add useful `[[wikilinks]]`.
-5. Update the master index.
-6. Append an entry to `wiki/log.md`.
-7. Report files processed, pages created, pages updated, and unresolved issues.
+1. `raw/` のMarkdownファイルを確認する。
+2. 既存の `wiki/` ノートと照合し、未処理または更新が必要なソースを見つける。
+3. 各ソースについて以下を作る。
+   - ソース要約
+   - 主要概念
+   - 既存ノートとの関連
+   - 必要な `[[wikilink]]`
+4. 重要概念が複数ソースに出る場合は、`wiki/concepts/` に概念ページを作る。
+5. Master Indexまたは関連するindexを更新する。
+6. 作業内容を `wiki/log.md` に追記する。
+7. 処理したファイル、作成したノート、未解決の論点を報告する。
 
