@@ -3,6 +3,8 @@ title: "{{YYYY-MM-DD}}"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: daily
+domain: personal
+topic: ""
 summary: ""
 tags: []
 status: draft
@@ -19,4 +21,3 @@ status: draft
 ## 感情・コンディション
 
 ## 関連リンク
-

@@ -3,6 +3,8 @@ title: "{{質問または回答タイトル}}"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: qa
+domain: other
+topic: ""
 summary: ""
 tags: []
 status: final
@@ -19,4 +21,3 @@ status: final
 ## 関連リンク
 
 ## 次に調べること
-

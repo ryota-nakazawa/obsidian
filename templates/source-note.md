@@ -3,6 +3,8 @@ title: "{{タイトル}}"
 date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: source
+domain: research
+topic: ""
 summary: ""
 tags: []
 status: draft
@@ -19,4 +21,3 @@ authors: []
 ## 関連するノート
 
 ## 出典メモ
-
