@@ -4,6 +4,8 @@ date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: daily
 domain: personal
+area: ""
+project: ""
 topic: ""
 summary: ""
 tags: []

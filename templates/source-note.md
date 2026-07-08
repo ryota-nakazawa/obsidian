@@ -4,6 +4,8 @@ date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: source
 domain: research
+area: ""
+project: ""
 topic: ""
 summary: ""
 tags: []

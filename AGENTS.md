@@ -19,6 +19,8 @@ evals以外の情報も入れてよい。フォルダを増やしすぎるより
 
 ```yaml
 domain: work | admin | personal | research | other
+area: "大分類。例: content, finance, legal, learning"
+project: "具体プロジェクト。なければ空"
 topic: "短いテーマ名"
 ```
 
@@ -29,6 +31,24 @@ topic: "短いテーマ名"
 - `other` - 一時分類
 
 業務用途と事務用途を分けたい場合も、まずは同じ `daily/`, `ops/`, `qa/`, `wiki/` を使い、`domain` で分ける。必要になったら `ops/work/` や `ops/admin/` のようにサブフォルダ化する。
+
+同じ `work` や `admin` の中に複数のプロジェクト・毛色の違う作業があっても問題ない。`area` と `project` で分ける。
+
+例:
+
+```yaml
+domain: work
+area: content
+project: ai-evals-article
+topic: "LLM-as-a-Judge"
+```
+
+```yaml
+domain: admin
+area: accounting
+project: monthly-closing
+topic: "請求書処理"
+```
 
 ## 知識の流れ
 
@@ -91,6 +111,8 @@ date_created: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 type: source | concept | daily | ops | qa | index
 domain: work | admin | personal | research | other
+area: "大分類"
+project: "具体プロジェクト"
 topic: "短いテーマ名"
 summary: "一文要約"
 tags: []

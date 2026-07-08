@@ -1,0 +1,7 @@
+interface:
+  display_name: "外部脳Vault"
+  short_description: "Obsidian外部脳vaultの知識運用"
+  default_prompt: "Use $external-brain-vault to organize this external brain vault across raw/wiki/daily/ops/qa with domain metadata and useful wikilinks."
+
+policy:
+  allow_implicit_invocation: true

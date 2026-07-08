@@ -54,6 +54,8 @@ rawに追加した記事をwiki化して
 
 ```yaml
 domain: work | admin | personal | research | other
+area: "大分類"
+project: "具体プロジェクト"
 topic: "短いテーマ名"
 ```
 
@@ -62,5 +64,21 @@ topic: "短いテーマ名"
 - `personal` - 日記、感情ログ、個人的な振り返り
 - `research` - 外部ソースに基づく調査・知識化
 - `other` - 一時分類
+
+同じ業務・事務の中に複数プロジェクトがあっても大丈夫です。`area` と `project` を使います。
+
+```yaml
+domain: work
+area: content
+project: ai-evals-article
+topic: "記事構成"
+```
+
+```yaml
+domain: admin
+area: accounting
+project: monthly-closing
+topic: "請求書処理"
+```
 
 空の `[[リンク]]` は必ずしも問題ではありません。あとで育てたい概念なら残し、ノイズなら削り、複数回出てくる重要概念ならスタブを作ります。
