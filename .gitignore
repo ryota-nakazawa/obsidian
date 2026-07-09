@@ -1,2 +1,8 @@
 .DS_Store
 .obsidian/workspace.json
+
+# private daily notes
+daily/*.md
+
+# local processing scratch
+tmp/
